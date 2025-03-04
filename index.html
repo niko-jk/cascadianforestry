@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cascadian Forestry</title>
+  <style>
+    /* Force no scrolling beyond one screen */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Remove if you DO want scroll */
+    }
+
+    /* Load your custom OSP-DIN font securely from GitHub Pages */
+    @font-face {
+      font-family: 'OSP-DIN';
+      src: url('https://niko-jk.github.io/cascadianforestry/OSP-DIN.ttf') format('truetype');
+    }
+
+    /* Basic body styling with a subtle gradient behind everything */
+    body {
+      background: linear-gradient(
+        90deg,
+        rgba(19, 33, 6, 1) 0%,
+        rgba(56, 77, 16, 1) 64%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      color: white;
+      font-family: 'OSP-DIN', Tahoma, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative; 
+    }
+
+    /* RESPONSIVE background container */
+    .picture-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 0;
+    }
+    .picture-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+    }
+
+    /* Main content container */
+    .content {
+      position: relative;
+      z-index: 2; /* content above the overlay */
+      width: 50%;
+      padding-left: 10%;
+      margin-top: 20px; 
+      padding-top: 20px;
+      text-align: left;
+    }
+
+    .title {
+      font-family: 'OSP-DIN', sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: 0;
+    }
+
+    .subtitle,
+    .contact,
+    .description,
+    .photos {
+      font-family: Tahoma, sans-serif;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    /* Place the “photos” link at 20vh from the top */
+    .photos {
+      margin-top: 20vh;
+    }
+    .photos a {
+      color: white;
+      text-decoration: none;
+    }
+    .photos a:hover {
+      text-decoration: underline;
+    }
+
+    /* On smaller screens, adjust layout so content doesn't get clipped off the top */
+    @media (max-width: 768px) {
+      .content {
+        width: 80%;
+        margin-top: 20px; 
+        padding: 20px;
+        padding-top: 0;
+      }
+    }
+
+    /* Hide ALL Tumblr elements (if Tumblr tries to inject anything) */
+    iframe[src*="tumblr.com"],
+    a[href*="tumblr.com"],
+    .tumblr-controls,
+    .tumblr-posts,
+    .tx-button,
+    .follow-button,
+    .t-logo,
+    .t-logo--full,
+    .tmblr-iframe--unified-controls,
+    .tmblr-iframe--loaded .iframe-controls--desktop .iframe-controls--phone-mobile,
+    body > iframe:first-child {
+      display: none !important;
+    }
+    .iframe-controls-container,
+    .iframe-controls-container * {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Responsive <picture> that swaps images for wide vs. narrow screens -->
+  <picture class="picture-bg">
+    <!-- Under 768px: rotated image -->
+    <source
+      media="(max-width: 768px)"
+      srcset="https://niko-jk.github.io/cascadianforestry/topo-transparent-white.png"
+    />
+    <!-- Default (wide screens) -->
+    <img
+      src="https://niko-jk.github.io/cascadianforestry/topo-transparent-white-sideways.png"
+      alt="Background Image"
+    />
+  </picture>
+
+  <div class="overlay"></div>
+
+  <div class="content">
+    <div class="title">
+      <br />Cascadian Forestry
+    </div>
+    <div class="subtitle">
+      Full site coming soon<br /><br />
+    </div>
+    <div class="contact">
+      541-350-2712<br /><br />
+      cascadian.forestry@gmail.com<br /><br />
+    </div>
+    <div class="description">
+      • Forest Inventory<br />
+      • Data Collection<br />
+      • GIS and Mapping
+    </div>
+    <div class="photos">
+      <a href="https://www.nikojk.com/" target="_blank" rel="noopener">
+        Photos from the woods
+      </a>
+    </div>
+  </div>
+</body>
+</html>
