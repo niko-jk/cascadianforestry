@@ -101,11 +101,16 @@
       text-decoration: underline;
     }
 
-    /* Remove hyperlink styling for phone and email */
+    /* Phone & email: no default underline, but underline on hover */
     a[href^="tel"],
     a[href^="mailto"] {
       color: inherit;
       text-decoration: none;
+    }
+    a[href^="tel"]:hover,
+    a[href^="mailto"]:hover {
+      text-decoration: underline;
+      cursor: pointer;
     }
 
     /* On smaller screens, adjust layout so content doesn't get clipped */
@@ -144,9 +149,9 @@
       Full site coming soon<br /><br />
     </div>
     <div class="contact">
-      <!-- Phone is a tel: link but appears as normal text -->
+      <!-- Phone number is a tel: link -->
       <a href="tel:541-350-2712">541-350-2712</a><br /><br />
-      <!-- Email is a mailto: link but also appears like normal text -->
+      <!-- Email is a mailto: link -->
       <a href="mailto:cascadian.forestry@gmail.com">cascadian.forestry@gmail.com</a><br /><br />
     </div>
     <div class="description">
